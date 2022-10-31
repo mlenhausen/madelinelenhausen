@@ -11,6 +11,16 @@ body, html {
   overflow-x: hidden;
 }
 
+@font-face {
+  font-family: 'Cairo';
+  src: url('Cairo.eot'); /* IE9 Compat Modes */
+  src: url('Cairo.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Cairo.woff2') format('woff2'), /* Super Modern Browsers */
+       url('Cairo.woff') format('woff'), /* Pretty Modern Browsers */
+       url('Cairo.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Cairo.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
 /*{
   outline: 1px solid red;
  }
