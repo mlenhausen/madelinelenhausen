@@ -519,7 +519,7 @@ div.pubs div div:before {
   
   @media only screen and (max-width: 900px) {
         /*updated styles for your mobile elements that will become active when the screen 
-    is smaller than 1080px*/
+    is smaller than 900px*/
     body, html {
       position: relative;
       background-image: url("images/bigdata.png");
@@ -985,7 +985,7 @@ div.pubs div div:before {
       text-decoration: none;
       display: inline-block;
       transition: all 0.3s ease-out;
-      font-size: .56rem;
+      font-size: .55rem;
     }
   
     .hero_p {
@@ -1134,4 +1134,4 @@ div.pubs div div:before {
       margin: 0;
       padding: 0;
     }
-    }
+  }
