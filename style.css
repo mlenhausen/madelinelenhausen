@@ -528,7 +528,7 @@ div.pubs div div:before {
     is smaller than 900px*/
     body, html {
       position: relative;
-      background-image: url("images/bigdata.avif");
+      background-image: url("images/bigdata.png");
       width: 100%;
       min-height: 100%;
       margin: 0px;
