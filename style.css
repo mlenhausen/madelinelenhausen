@@ -11,6 +11,10 @@ body, html {
   overflow-x: hidden;
 }
 
+body {
+  min-height: 100vh;
+}
+
 @font-face {
   font-family: 'Praktika';
   src: url('images/praktika-light.otf') format('opentype');
@@ -72,14 +76,20 @@ html {
     color: #FFF;
   }
 
-.navi li {
-  display: inline;
+.mobile {
+  display: none;
+  position: absolute;
 }
 
-.navi ul {
-  display: inline-block;
-  vertical-align: middle;
+.mobile input {
+  display: none;
+  position: absolute;
 }
+
+.mobile label {
+  display: none;
+}
+
 
 .contain ul {
   display: inline-block;
@@ -97,7 +107,7 @@ html {
 }
 
 .contain a:hover {
-  transform: scale(1.15)
+  transform: scale(1.15);
 }
   
   .nav li {
@@ -109,9 +119,24 @@ html {
     padding: 5px;
     display: inline-block;
   }
+  
 
-  .gate a:hover {
-    color:rgba(194, 57, 214, 0.755)
+  .gate a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -70%;
+    left: 0;
+    background-color: white;
+    transform-origin: center;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .gate a:hover:after {
+    transform: scaleX(1);
+    transform-origin: center;
   }
 
   .twitter a:hover {
@@ -131,6 +156,7 @@ html {
     display: flex;
     justify-content: center;
     color: #FFF;
+    padding-top: 15%;
   }
   
   .hero-inner {
@@ -376,6 +402,10 @@ div.pubs div div:before {
     transition: all 0.3s ease-out;
   }
 
+  .pubs a:visited {
+    color: rgb(194, 57, 214);
+  }
+
   .hero_p {
     padding: 50px;
     display: flex;
@@ -545,8 +575,10 @@ div.pubs div div:before {
 
     .header {
       padding: 5%;
-      max-width: 100%;
-      background-color: rgba(17, 3, 53, .80);
+      position: fixed;
+      width: 100%;
+      z-index: 99;
+      background-color: rgb(17, 3, 53);
       font-size: .6rem;
       color: #FFF;
       display: flex;
@@ -557,8 +589,8 @@ div.pubs div div:before {
     }
 
     .header h1 {
-      width: 35%;
-      font-size: .6rem;
+      width: 100%;
+      font-size: 1rem;
     }
 
     .contain ul {
@@ -581,23 +613,147 @@ div.pubs div div:before {
       transform: scale(1.15)
     }
 
-    .navi li {
-      display: inline;
+    .mobile {
+      display: block;
     }
     
-    .navi ul {
-      display: inline-block;
-      vertical-align: middle;
+    .mobile input {
+      display: block;
     }
-      
+    
+    .mobile label {
+      display: block;
+    }
+
+
+    #sidebarMenu {
+      height: 100%;
+      font-size: 1rem;
+      position: fixed;
+      right: 0;
+      width: 250px;
+      margin-top: 10%;
+      transform: translateX(250px);
+      transition: transform 250ms ease-in-out;
+      background: linear-gradient(180deg, rgb(18 7 47) 0%, #3F5EFB 100%);
+  }
+
+    .sidebarMenuInner{
+      margin:0;
+      padding:0;
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
+  }
+  
+  .sidebarMenuInner li{
+      list-style: none;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 20px;
+      cursor: pointer;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  .sidebarMenuInner li a{
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+  }
+  input[type="checkbox"]:checked ~ #sidebarMenu {
+      transform: translateX(0);
+  }
+  
+  input[type=checkbox] {
+      transition: all 0.3s;
+      box-sizing: border-box;
+      display: none;
+  }
+
+  .sidebarIconToggle {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: fixed;
+    align-self: right;
+    margin-left: 85%;
+    margin-top: 2%;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    top: 22px;
+    left: 15px;
+    height: 22px;
+    width: 22px;
+}
+
+  /*.sidebarIconToggle {
+      transition: all 0.3s;
+      box-sizing: border-box;
+      cursor: pointer;
+      position: absolute;
+      z-index: 99;
+      height: 100%;
+      width: 100%;
+      top: 22px;
+      left: 15px;
+      height: 22px;
+      width: 22px;
+  }*/
+
+  .spinner {
+      transition: all 0.3s;
+      box-sizing: border-box;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background-color: #fff;
+  }
+  .horizontal {
+      transition: all 0.3s;
+      box-sizing: border-box;
+      position: relative;
+      float: left;
+      margin-top: 3px;
+  }
+  .diagonal.part-1 {
+      position: relative;
+      transition: all 0.3s;
+      box-sizing: border-box;
+      float: left;
+  }
+  .diagonal.part-2 {
+      transition: all 0.3s;
+      box-sizing: border-box;
+      position: relative;
+      float: left;
+      margin-top: 3px;
+  }
+  input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+      transition: all 0.3s;
+      box-sizing: border-box;
+      opacity: 0;
+  }
+  input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+      transition: all 0.3s;
+      box-sizing: border-box;
+      transform: rotate(135deg);
+      margin-top: 8px;
+  }
+  input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+      transition: all 0.3s;
+      box-sizing: border-box;
+      transform: rotate(-135deg);
+      margin-top: -9px;
+  }
+
       .nav li {
-        display: inline-block;
-        padding: 5px;
+        display: none;
       }
       
       .nav2 li {
-        display: inline-block;
-        padding: 2px;
+        display: none;
       }
 
     .hero {
@@ -608,6 +764,7 @@ div.pubs div div:before {
       max-width: 100%;
       height: 100%;
       padding: 35%;
+      padding-top: 55%;
     }
     
     .hero-inner {
@@ -638,16 +795,22 @@ div.pubs div div:before {
     .hero a {
       text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.782);
     }
+
+    .research {
+      padding-top: 20%;
+    }
     
     .process {
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
     }
 
     .process img {
       width: 60%;
       padding-left: 3px;
+      z-index: 0;
     }
   
     .dropbtn {
@@ -799,6 +962,10 @@ div.pubs div div:before {
       transition: all 0.3s ease-out;
       font-size: .4rem;
     }
+
+    .pubs a:visited {
+      color: rgb(194, 57, 214);
+    }
   
     .hero_p {
       padding: 50px;
@@ -809,6 +976,10 @@ div.pubs div div:before {
 
     .traittest {
       margin-bottom: 100px;
+    }
+
+    .hero_p {
+      padding-top: 25%;
     }
 
     .photos img {
