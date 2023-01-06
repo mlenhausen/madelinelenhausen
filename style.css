@@ -151,6 +151,8 @@ html {
     color: #4285F4;
   }
 
+/* -- HOME PAGE -- */
+
   .hero {
     padding: 185px 200px;
     display: flex;
@@ -195,6 +197,9 @@ html {
     background-color: rgb(50, 49, 49);
     transition: all 0.15s ease;
   }
+
+
+/* -- RESEARCH PAGE -- */
 
   .process {
     display: flex;
@@ -406,6 +411,8 @@ div.pubs div div:before {
     color: rgb(194, 57, 214);
   }
 
+/* -- PERSONAL PAGE -- */
+
   .hero_p {
     padding: 50px;
     display: flex;
@@ -436,6 +443,13 @@ div.pubs div div:before {
     font-size: 4rem;
   }
 
+  .photos a {
+    color: #FFF;
+  }
+
+  .photos a:visited {
+    color: rgb(194, 57, 214);
+  }
 
   .bio {
     display: flex;
